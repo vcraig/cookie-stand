@@ -11,14 +11,8 @@ var shopAlki = {
   custMin: 23, // minimum number of customers per hour.
   custMax: 65, // max number of customers per hour.
   cookAvg: 6.3, // average number of cookies purchased per customer.
-  hourlyCust: [],
-  // hourlyCust: function() {
-  //    // Uses a method of that object to generate a random number of customers per hour. Objects/Math/random
-  //       // {
-  //       // Calculate randomized cookAvg values
-  //       // Store results in array
-  //       // for each of 15 hourlong periods
-  //       // }
+  hourlyCust: [], // array containing a random number of customers per hour.
+  hourlyArray: [] // array containing number of cookies sold in an hour period.
 };
 
 var randNum = function() {
@@ -28,10 +22,16 @@ var randNum = function() {
 var custArray = function() {
   for (var i = 0; i < hours.length; i++) {
     shopAlki.hourlyCust[i] = randNum();
+    shopAlki.hourlyArray.push(Math.floor(shopAlki.hourlyCust[i] * shopAlki.cookAvg));
   }
 };
+
+//var shopAlki.hourlyCook[0] =  shopAlki.hourlyCust[0] * shopAlki.cookAvg
+
+
 custArray();
-console.log(shopAlki.hourlyCust);
+console.log(shopAlki.hourlyCust + ' shopAlki.hourlyCust');
+console.log(shopAlki.hourlyArray + ' shopAlki.hourlyArray');
 
 
 
