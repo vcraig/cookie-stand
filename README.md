@@ -22,7 +22,7 @@ Build an application that
 - create a pubic-facing page (in a file called index.html) that is colorful, eye-catching, readable, useful, informative... and ultimately of a quality ready for use on T-shirts, stickers, coffee mugs, cookie bags, napkins, and so on.
 
 
-Calculate Daily Sales Projections (sales.html)
+## Calculate Daily Sales Projections (sales.html)
 
 We're going to assemble this web application bit by bit.
 
