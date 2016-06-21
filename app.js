@@ -6,22 +6,24 @@
 // Display the values of each array as unordered lists in the browser
 // Calculating the sum of these hourly totals; your output for each location should look like this:
 var hours = ['6:00am', '7:00am','8:00am','9:00am','10:00am','11:00am','12:00pm', '1:00pm','2:00pm','3:00pm','4:00pm','5:00pm','6:00pm','7:00pm','8:00pm'];
-// create cShop object to be replicated for each shop location.
+// Object template for cookie stand.
 var shopAlki = {
   custMin: 23, // minimum number of customers per hour.
   custMax: 65, // max number of customers per hour.
   cookAvg: 6.3, // average number of cookies purchased per customer.
   hourlyCust: [], // array containing a random number of customers per hour.
-  hourlyArray: [] // array containing number of cookies sold in an hour period.
+  hourlyArray: [], // array containing number of cookies sold in an hour period.
+  randNum: 0,
+  custArray: [],
 };
 
-var randNum = function() {
+shopAlki.randNum = function() {
   return Math.floor(Math.random() * (shopAlki.custMax - shopAlki.custMin + 1)) + shopAlki.custMin;
 };
 
-var custArray = function() {
+shopAlki.custArray = function() {
   for (var i = 0; i < hours.length; i++) {
-    shopAlki.hourlyCust[i] = randNum();
+    shopAlki.hourlyCust[i] = shopAlki.randNum();
     shopAlki.hourlyArray.push(Math.floor(shopAlki.hourlyCust[i] * shopAlki.cookAvg));
   }
 };
@@ -29,7 +31,7 @@ var custArray = function() {
 //var shopAlki.hourlyCook[0] =  shopAlki.hourlyCust[0] * shopAlki.cookAvg
 
 
-custArray();
+shopAlki.custArray();
 console.log(shopAlki.hourlyCust + ' shopAlki.hourlyCust');
 console.log(shopAlki.hourlyArray + ' shopAlki.hourlyArray');
 
