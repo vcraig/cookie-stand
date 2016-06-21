@@ -13,41 +13,42 @@ function Shop(shopLoc, custPerHrMin, custPerHrMax, cookPerCustAvg) {
   this.custPerHrMax = custPerHrMax; // max number of customers per hour.
   this.cookPerCustAvg = cookPerCustAvg; // average number of cookies purchased per customer.
   console.log('The ' + shopLoc + ' store sells an avg of ' + cookPerCustAvg + 'cookies per customer.');
-  // hourlyCust: [], // array containing a random number of customers per hour.
-  // hourlyArray: [], // array containing number of cookies sold in an hour period.
-  // randNum: 0,
+  this.custPerHrArray = []; // array containing a random number of customers per hour.
+  this.cooksPerHrArray = []; // array containing number of cookies sold in an hour period.
+  // this.randNum = 0;
   // custArray: [],
 };
 var firstAndPike = new Shop('1st and Pike', 23, 65, 6.3);
 var seatacAirport = new Shop('SeaTac Airport', 3, 24, 1.2);
 var seattleCenter = new Shop('Seattle Center', 11, 38, 3.7);
 
-shopAlki.randNum = function() {
-  return Math.floor(Math.random() * (shopAlki.custMax - shopAlki.custMin + 1)) + shopAlki.custMin;
+Shop.prototype.randNum = function() {
+  return Math.floor(Math.random() * (this.custPerHrMax - this.custPerHrMin + 1)) + this.custPerHrMin;
 };
 
-shopAlki.custArray = function() {
+Shop.prototype.custPerHr = function() {
   for (var i = 0; i < hours.length; i++) {
-    shopAlki.hourlyCust[i] = shopAlki.randNum();
-    shopAlki.hourlyArray.push(Math.floor(shopAlki.hourlyCust[i] * shopAlki.cookAvg));
+    this.custPerHrArray[i] = this.randNum();
+    console.log(this.custPerHrArray);
+    this.cooksPerHrArray.push(Math.floor(this.custPerHrArray[i] * this.cookPerCustAvg));
   }
 };
+firstAndPike.custPerHr(); //calling the instance
 
-shopAlki.salesData = function() {
+Shop.prototype.renderData = function() {
   //Access the Dom element for data position
-  var dataList = document.getElementById('alkiData');
+  var dataList = document.getElementById('salesData');
   for (var i = 0; i < hours.length; i++) {
     //create the html element
     var listItem = document.createElement('li');
     //distribute content to the element
-    listItem.textContent = hours[i] + shopAlki.hourlyArray.push() + ' cookies';
+    listItem.textContent = hours[i] + this.cooksPerHrArray.push() + ' cookies';
     console.log(listItem.textContent);
     //append the element to the Dom
     alkiData.appendChild(listItem);
   }
 };
-shopAlki.salesData();
+// Shop.salesData();
 
-shopAlki.custArray();
-// console.log(shopAlki.hourlyCust + ' shopAlki.hourlyCust');
-console.log(shopAlki.hourlyArray + ' shopAlki.hourlyArray');
+// console.log(Shop.custPerHrArray + ' Shop.custPerHrArray');
+// console.log(Shop.cooksPerHrArray + ' Shop.cooksPerHrArray');
