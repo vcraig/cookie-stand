@@ -6,16 +6,21 @@
 // Display the values of each array as unordered lists in the browser
 
 var hours = ['6:00am', '7:00am','8:00am','9:00am','10:00am','11:00am','12:00pm', '1:00pm','2:00pm','3:00pm','4:00pm','5:00pm','6:00pm','7:00pm','8:00pm'];
-// Object template for cookie stand.
-var shopAlki = {
-  custMin: 23, // minimum number of customers per hour.
-  custMax: 65, // max number of customers per hour.
-  cookAvg: 6.3, // average number of cookies purchased per customer.
-  hourlyCust: [], // array containing a random number of customers per hour.
-  hourlyArray: [], // array containing number of cookies sold in an hour period.
-  randNum: 0,
-  custArray: [],
+// construct object for cookie stand.
+function Shop(shopLoc, custPerHrMin, custPerHrMax, cookPerCustAvg) {
+  this.shopLoc = shopLoc;
+  this.custPerHrMin = custPerHrMin; // minimum number of customers per hour.
+  this.custPerHrMax = custPerHrMax; // max number of customers per hour.
+  this.cookPerCustAvg = cookPerCustAvg; // average number of cookies purchased per customer.
+  console.log('The ' + shopLoc + ' store sells an avg of ' + cookPerCustAvg + 'cookies per customer.');
+  // hourlyCust: [], // array containing a random number of customers per hour.
+  // hourlyArray: [], // array containing number of cookies sold in an hour period.
+  // randNum: 0,
+  // custArray: [],
 };
+var firstAndPike = new Shop('1st and Pike', 23, 65, 6.3);
+var seatacAirport = new Shop('SeaTac Airport', 3, 24, 1.2);
+var seattleCenter = new Shop('Seattle Center', 11, 38, 3.7);
 
 shopAlki.randNum = function() {
   return Math.floor(Math.random() * (shopAlki.custMax - shopAlki.custMin + 1)) + shopAlki.custMin;
