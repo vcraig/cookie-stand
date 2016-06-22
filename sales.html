@@ -5,8 +5,27 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
   <body>
-      <h1>Sales Data - Pat's Salmon Cookies</h1>
-      <table id="salesData"></table>
+    <h1>Sales Data - Pat's Salmon Cookies</h1>
+    <table id="salesData"></table>
+    <form id="">
+      <legend>Add a shop</legend>
+      <fieldset>
+        <label for="shop_location">Shop Location:</label>
+        <input name="shop_location" type="text"/>
+      </fieldset>
+      <fieldset>
+        <label for="min_cust_per_hour">Minimum Customers Per Hour:</label>
+        <input name="min_cust_per_hour" type="text"/>
+      </fieldset>
+      <fieldset>
+        <label for="max_cust_per_hour">Maximum Customers Per Hour:</label>
+        <input name="max_cust_per_hour" type="text"/>
+      </fieldset>
+      <fieldset>
+        <label for="avg_cookies_per_hour">Average Cookies Per Hour:</label>
+        <input name="avg_cookies_per_hour" type="text"/>
+      </fieldset>
+    </form>
   <script src="app.js"></script>
   </body>
 </html>

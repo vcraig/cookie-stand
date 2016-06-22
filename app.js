@@ -7,9 +7,10 @@ function Shop(shopLoc, custPerHrMin, custPerHrMax, cookPerCustAvg) {
   this.custPerHrMin = custPerHrMin; // minimum number of customers per hour.
   this.custPerHrMax = custPerHrMax; // max number of customers per hour.
   this.cookPerCustAvg = cookPerCustAvg; // average number of cookies purchased per customer.
-  console.log('The ' + shopLoc + ' store sells an avg of ' + cookPerCustAvg + ' cookies per customer.');
+  // console.log('The ' + shopLoc + ' store sells an avg of ' + cookPerCustAvg + ' cookies per customer.');
   this.custPerHrArray = []; // array containing a random number of customers per hour.
   this.cooksPerHrArray = []; // array containing number of cookies sold in an hour period.
+  this.totalDailyCookies = 0;
   // this.randNum = 0;
 }
 
@@ -32,9 +33,11 @@ Shop.prototype.cooksPerHr = function() {
     randNum = Math.floor(Math.random() * (this.custPerHrMax - this.custPerHrMin + 1)) + this.custPerHrMin;
     this.custPerHrArray[i] = randNum;
     this.cooksPerHrArray.push(Math.floor(this.custPerHrArray[i] * this.cookPerCustAvg));
+    this.totalDailyCookies += this.cooksPerHrArray[i];
   }
-  console.log(this.cooksPerHrArray);
+  // console.log(this.cooksPerHrArray);
 };
+
 firstAndPike.cooksPerHr();
 seatacAirport.cooksPerHr();
 seattleCenter.cooksPerHr();
@@ -68,7 +71,6 @@ Shop.prototype.headerRow = function() {
 };
 Shop.prototype.headerRow();
 
-
 // render the table
 Shop.prototype.renderData = function() {
   //Access the Dom element for data position
@@ -82,7 +84,7 @@ Shop.prototype.renderData = function() {
   dataTable.appendChild(tdEl);  // append
 
   var tdEl = document.createElement('td');
-  tdEl.textContent = 'PH total datum';  // fill
+  tdEl.textContent = this.totalDailyCookies;  // fill
   dataTable.appendChild(tdEl);  // append
 
   for (var i = 0; i < hours.length; i++) {
