@@ -7,59 +7,72 @@ function Shop(shopLoc, custPerHrMin, custPerHrMax, cookPerCustAvg) {
   this.custPerHrMin = custPerHrMin; // minimum number of customers per hour.
   this.custPerHrMax = custPerHrMax; // max number of customers per hour.
   this.cookPerCustAvg = cookPerCustAvg; // average number of cookies purchased per customer.
-  console.log('The ' + shopLoc + ' store sells an avg of ' + cookPerCustAvg + 'cookies per customer.');
+  console.log('The ' + shopLoc + ' store sells an avg of ' + cookPerCustAvg + ' cookies per customer.');
   this.custPerHrArray = []; // array containing a random number of customers per hour.
   this.cooksPerHrArray = []; // array containing number of cookies sold in an hour period.
-  this.randNum = 0;
-  // custArray: [],
-};
+  // this.randNum = 0;
+}
 
 var firstAndPike = new Shop('1st and Pike', 23, 65, 6.3);
 var seatacAirport = new Shop('SeaTac Airport', 3, 24, 1.2);
 var seattleCenter = new Shop('Seattle Center', 11, 38, 3.7);
+var capitolHill = new Shop('Capitol Hill', 20, 38, 2.3);
+var alki = new Shop ('Alki', 2, 16, 4.6);
 
-Shop.prototype.randNum = function() {
-  return Math.floor(Math.random() * (this.custPerHrMax - this.custPerHrMin + 1)) + this.custPerHrMin;
-};
+// Shop.prototype.randNumGen = function() {
+//   // return Math.floor(Math.random() * (this.custPerHrMax - this.custPerHrMin + 1)) + this.custPerHrMin;
+//   var randNum = 0;
+//   randNum = Math.floor(Math.random() * (this.custPerHrMax - this.custPerHrMin + 1)) + this.custPerHrMin;
+// //return Math.floor(Math.random() * (max - min + 1)) + min;
+// };
 
-Shop.prototype.custPerHr = function() {
+Shop.prototype.cooksPerHr = function() {
+  var randNum = 0;
   for (var i = 0; i < hours.length; i++) {
-    this.custPerHrArray[i] = this.randNum();
+    randNum = Math.floor(Math.random() * (this.custPerHrMax - this.custPerHrMin + 1)) + this.custPerHrMin;
+    this.custPerHrArray[i] = randNum;
     this.cooksPerHrArray.push(Math.floor(this.custPerHrArray[i] * this.cookPerCustAvg));
   }
+  console.log(this.cooksPerHrArray);
 };
-// firstAndPike.custPerHr(); //calling the instance
+firstAndPike.cooksPerHr();
+seatacAirport.cooksPerHr();
+seattleCenter.cooksPerHr();
+capitolHill.cooksPerHr();
+alki.cooksPerHr();
+
+// firstAndPike.cooksPerHr(); //calling the instance
 //console.log(firstAndPike.cooksPerHrArray);
 
-// // render the table heading row
-// Shop.prototype.headerRow = function() {
-//   //Access the Dom element for data position
-//   var dataTable = document.getElementById('salesData');
-//
-//   var trEl = document.createElement('tr');  //create the html element
-//
-//   var thEl = document.createElement('th'); //create the html element
-//   thEl.textContent = '';  // fill
-//   dataTable.appendChild(thEl);  // append
-//
-//   var thEl = document.createElement('th');
-//   thEl.textContent = 'Daily Location Total';  // fill
-//   dataTable.appendChild(thEl);  // append
-//
-//   for (var i = 0; i < hours.length; i++) {
-//     var thEl = document.createElement('th');
-//     thEl.textContent = hours[i];  // fill
-//     dataTable.appendChild(thEl);  // append
-//   }
-//   dataTable.appendChild(trEl);  // append
-//
-// };
+// render the table heading row
+Shop.prototype.headerRow = function() {
+  //Access the Dom element for data position
+  var dataTable = document.getElementById('salesData');
+
+  var trEl = document.createElement('tr');  //create the html element
+
+  var thEl = document.createElement('th'); //create the html element
+  thEl.textContent = '';  // fill
+  dataTable.appendChild(thEl);  // append
+
+  var thEl = document.createElement('th');
+  thEl.textContent = 'Daily Location Total';  // fill
+  dataTable.appendChild(thEl);  // append
+
+  for (var i = 0; i < hours.length; i++) {
+    var thEl = document.createElement('th');
+    thEl.textContent = hours[i];  // fill
+    dataTable.appendChild(thEl);  // append
+  }
+  dataTable.appendChild(trEl);  // append
+};
+Shop.prototype.headerRow();
+
 
 // render the table
 Shop.prototype.renderData = function() {
   //Access the Dom element for data position
 
-  // SH change all 3 of textconent assignments to reflect indivudal locations. hint: THIS
   var dataTable = document.getElementById('salesData');
 
   var trEl = document.createElement('tr');  //create the html element
@@ -77,10 +90,11 @@ Shop.prototype.renderData = function() {
     tdEl.textContent = this.cooksPerHrArray[i];  // fill
     dataTable.appendChild(tdEl);  // append
   }
-
   dataTable.appendChild(trEl);  // append
-
 };
+
 firstAndPike.renderData();
 seatacAirport.renderData();
 seattleCenter.renderData();
+capitolHill.renderData();
+alki.renderData();
