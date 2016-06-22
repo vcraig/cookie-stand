@@ -25,7 +25,7 @@ addStoreForm.addEventListener('submit', function(event){
     avgCookiesPerCust = parseFloat(document.getElementById('avg_cookies_per_hour').value),
     storeName = document.getElementById('shop_location').value;
     //here is where data validation will go if we have time
-  var someThine = new Shop(storeName, minCustPerHour, maxCustPerHour, avgCookiesPerCust);
+  new Shop(storeName, minCustPerHour, maxCustPerHour, avgCookiesPerCust);
   var dataTable = document.getElementById('salesData');
   dataTable.textContent = '';
   headerRow();
