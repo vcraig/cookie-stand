@@ -10,9 +10,10 @@ function Shop(shopLoc, custPerHrMin, custPerHrMax, cookPerCustAvg) {
   console.log('The ' + shopLoc + ' store sells an avg of ' + cookPerCustAvg + 'cookies per customer.');
   this.custPerHrArray = []; // array containing a random number of customers per hour.
   this.cooksPerHrArray = []; // array containing number of cookies sold in an hour period.
-  // this.randNum = 0;
+  this.randNum = 0;
   // custArray: [],
 };
+
 var firstAndPike = new Shop('1st and Pike', 23, 65, 6.3);
 var seatacAirport = new Shop('SeaTac Airport', 3, 24, 1.2);
 var seattleCenter = new Shop('Seattle Center', 11, 38, 3.7);
@@ -28,33 +29,58 @@ Shop.prototype.custPerHr = function() {
   }
 };
 // firstAndPike.custPerHr(); //calling the instance
-console.log(firstAndPike.cooksPerHrArray);
+//console.log(firstAndPike.cooksPerHrArray);
+
+// // render the table heading row
+// Shop.prototype.headerRow = function() {
+//   //Access the Dom element for data position
+//   var dataTable = document.getElementById('salesData');
+//
+//   var trEl = document.createElement('tr');  //create the html element
+//
+//   var thEl = document.createElement('th'); //create the html element
+//   thEl.textContent = '';  // fill
+//   dataTable.appendChild(thEl);  // append
+//
+//   var thEl = document.createElement('th');
+//   thEl.textContent = 'Daily Location Total';  // fill
+//   dataTable.appendChild(thEl);  // append
+//
+//   for (var i = 0; i < hours.length; i++) {
+//     var thEl = document.createElement('th');
+//     thEl.textContent = hours[i];  // fill
+//     dataTable.appendChild(thEl);  // append
+//   }
+//   dataTable.appendChild(trEl);  // append
+//
+// };
 
 // render the table
 Shop.prototype.renderData = function() {
   //Access the Dom element for data position
 
-  // SH change all 3 otf tetconent assignments to reflect indivudal locations. hint: THIS
+  // SH change all 3 of textconent assignments to reflect indivudal locations. hint: THIS
   var dataTable = document.getElementById('salesData');
 
   var trEl = document.createElement('tr');  //create the html element
 
-  var thEl = document.createElement('th'); //create the html element
-  thEl.textContent = '';  // fill
-  dataTable.appendChild(thEl);  // append
+  var tdEl = document.createElement('td'); //create the html element
+  tdEl.textContent = this.shopLoc;  // fill
+  dataTable.appendChild(tdEl);  // append
 
-  var thEl = document.createElement('th');
-  thEl.textContent = 'Daily Location Total';  // fill
-  dataTable.appendChild(thEl);  // append
+  var tdEl = document.createElement('td');
+  tdEl.textContent = 'PH total datum';  // fill
+  dataTable.appendChild(tdEl);  // append
 
   for (var i = 0; i < hours.length; i++) {
-    var thEl = document.createElement('th');
-    thEl.textContent = hours[i];  // fill
-    dataTable.appendChild(thEl);  // append
+    var tdEl = document.createElement('td');
+    tdEl.textContent = this.cooksPerHrArray[i];  // fill
+    dataTable.appendChild(tdEl);  // append
   }
-
-  // tr is standone func called headerRow.
 
   dataTable.appendChild(trEl);  // append
 
 };
+firstAndPike.renderData();
+seatacAirport.renderData();
+seattleCenter.renderData();
