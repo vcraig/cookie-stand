@@ -1,10 +1,5 @@
 // cookie-stand
 
-// Uses a method of that object to generate a random number of customers per hour. Objects/Math/random
-// Calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generated
-// Store the results for each location in a separate array... perhaps as a property of the object representing that location
-// Display the values of each array as unordered lists in the browser
-
 var hours = ['6:00am', '7:00am','8:00am','9:00am','10:00am','11:00am','12:00pm', '1:00pm','2:00pm','3:00pm','4:00pm','5:00pm','6:00pm','7:00pm','8:00pm'];
 // construct object for cookie stand.
 function Shop(shopLoc, custPerHrMin, custPerHrMax, cookPerCustAvg) {
@@ -29,26 +24,37 @@ Shop.prototype.randNum = function() {
 Shop.prototype.custPerHr = function() {
   for (var i = 0; i < hours.length; i++) {
     this.custPerHrArray[i] = this.randNum();
-    console.log(this.custPerHrArray);
     this.cooksPerHrArray.push(Math.floor(this.custPerHrArray[i] * this.cookPerCustAvg));
   }
 };
-firstAndPike.custPerHr(); //calling the instance
+// firstAndPike.custPerHr(); //calling the instance
+console.log(firstAndPike.cooksPerHrArray);
 
+// render the table
 Shop.prototype.renderData = function() {
   //Access the Dom element for data position
-  var dataList = document.getElementById('salesData');
-  for (var i = 0; i < hours.length; i++) {
-    //create the html element
-    var listItem = document.createElement('li');
-    //distribute content to the element
-    listItem.textContent = hours[i] + this.cooksPerHrArray.push() + ' cookies';
-    console.log(listItem.textContent);
-    //append the element to the Dom
-    alkiData.appendChild(listItem);
-  }
-};
-// Shop.salesData();
 
-// console.log(Shop.custPerHrArray + ' Shop.custPerHrArray');
-// console.log(Shop.cooksPerHrArray + ' Shop.cooksPerHrArray');
+  // SH change all 3 otf tetconent assignments to reflect indivudal locations. hint: THIS
+  var dataTable = document.getElementById('salesData');
+
+  var trEl = document.createElement('tr');  //create the html element
+
+  var thEl = document.createElement('th'); //create the html element
+  thEl.textContent = '';  // fill
+  dataTable.appendChild(thEl);  // append
+
+  var thEl = document.createElement('th');
+  thEl.textContent = 'Daily Location Total';  // fill
+  dataTable.appendChild(thEl);  // append
+
+  for (var i = 0; i < hours.length; i++) {
+    var thEl = document.createElement('th');
+    thEl.textContent = hours[i];  // fill
+    dataTable.appendChild(thEl);  // append
+  }
+
+  // tr is standone func called headerRow.
+
+  dataTable.appendChild(trEl);  // append
+
+};
