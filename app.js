@@ -14,17 +14,9 @@ function Shop(shopLoc, custPerHrMin, custPerHrMax, cookPerCustAvg) {
   this.custPerHrArray = []; // array containing a random number of customers per hour.
   this.cooksPerHrArray = []; // array containing number of cookies sold in an hour period.
   this.totalDailyCookies = 0;
+  this.cooksPerHr();
   shops.push(this);
-  // this.randNum = 0;
-}
-
-// from Sam's chat site demo
-  // if (!event.target.says.value || !event.target.who.value) {
-  //   return alert('Fields cannot be empty!');
-  // }
-
-  // var commenter = event.target.who.value;
-  // var remark = event.target.says.value;
+};
 
 addStoreForm.addEventListener('submit', function(event){
   event.preventDefault();
@@ -49,6 +41,18 @@ addStoreForm.addEventListener('submit', function(event){
   renderShopsArray();
 });
 
+Shop.prototype.cooksPerHr = function() {
+  var randNum = 0;
+  for (var i = 0; i < hours.length; i++) {
+    randNum = Math.floor(Math.random() * (this.custPerHrMax - this.custPerHrMin + 1)) + this.custPerHrMin;
+    this.custPerHrArray[i] = randNum;
+    this.cooksPerHrArray[i] = (Math.floor(this.custPerHrArray[i] * this.cookPerCustAvg));
+    this.totalDailyCookies += this.cooksPerHrArray[i];
+  }
+  // console.log(this.cooksPerHrArray);
+};
+
+
 var firstAndPike = new Shop('1st and Pike', 23, 65, 6.3);
 var seatacAirport = new Shop('SeaTac Airport', 3, 24, 1.2);
 var seattleCenter = new Shop('Seattle Center', 11, 38, 3.7);
@@ -62,16 +66,7 @@ var alki = new Shop ('Alki', 2, 16, 4.6);
 // //return Math.floor(Math.random() * (max - min + 1)) + min;
 // };
 
-Shop.prototype.cooksPerHr = function() {
-  var randNum = 0;
-  for (var i = 0; i < hours.length; i++) {
-    randNum = Math.floor(Math.random() * (this.custPerHrMax - this.custPerHrMin + 1)) + this.custPerHrMin;
-    this.custPerHrArray[i] = randNum;
-    this.cooksPerHrArray.push(Math.floor(this.custPerHrArray[i] * this.cookPerCustAvg));
-    this.totalDailyCookies += this.cooksPerHrArray[i];
-  }
-  // console.log(this.cooksPerHrArray);
-};
+
 
 // firstAndPike.cooksPerHr();
 // seatacAirport.cooksPerHr();
@@ -88,7 +83,7 @@ Shop.prototype.cooksPerHr = function() {
 
 // render the table
 Shop.prototype.renderData = function() {
-  this.cooksPerHr();
+  // this.cooksPerHr();
   var dataTable = document.getElementById('salesData');
   var trEl = document.createElement('tr');  //create the html element
   var tdEl = document.createElement('td'); //create the html element
