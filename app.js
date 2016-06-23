@@ -1,6 +1,6 @@
 // cookie-stand
 
-var hours = ['6:00am', '7:00am','8:00am','9:00am','10:00am','11:00am','12:00pm', '1:00pm','2:00pm','3:00pm','4:00pm','5:00pm','6:00pm','7:00pm','8:00pm'];
+var hours = ['6-7am', '7-8am','8-9am','9-10am','10-11am','11-Noon','Noon-1pm', '1-2pm','2-3pm','3-4pm','4-5pm','5-6pm','6-7pm','7-8pm','8-9pm'];
 var shops = [];
 var addStoreForm = document.getElementById('add_store_form');
 
@@ -18,6 +18,14 @@ function Shop(shopLoc, custPerHrMin, custPerHrMax, cookPerCustAvg) {
   // this.randNum = 0;
 }
 
+// from Sam's chat site demo
+  // if (!event.target.says.value || !event.target.who.value) {
+  //   return alert('Fields cannot be empty!');
+  // }
+
+  // var commenter = event.target.who.value;
+  // var remark = event.target.says.value;
+
 addStoreForm.addEventListener('submit', function(event){
   event.preventDefault();
   var minCustPerHour = parseInt(document.getElementById('min_cust_per_hour').value),
@@ -25,6 +33,15 @@ addStoreForm.addEventListener('submit', function(event){
     avgCookiesPerCust = parseFloat(document.getElementById('avg_cookies_per_hour').value),
     storeName = document.getElementById('shop_location').value;
     //here is where data validation will go if we have time
+  if (!minCustPerHour || !maxCustPerHour || !avgCookiesPerCust) {
+    return alert('Please enter a number in the field.');
+  };
+  if (!storeName) {
+    return alert('Please enter the store name.');
+  };
+  if (maxCustPerHour < minCustPerHour) {
+    return alert('You entered a maximum number of customers per hour that is smaller than your minimum. Please enter a larger or equal number.');
+  };
   new Shop(storeName, minCustPerHour, maxCustPerHour, avgCookiesPerCust);
   var dataTable = document.getElementById('salesData');
   dataTable.textContent = '';
