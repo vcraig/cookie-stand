@@ -1,6 +1,6 @@
 // cookie-stand
 
-var hours = ['6:00am', '7:00am','8:00am','9:00am','10:00am','11:00am','12:00pm', '1:00pm','2:00pm','3:00pm','4:00pm','5:00pm','6:00pm','7:00pm','8:00pm'];
+var hours = ['6-7am', '7-8am','8-9am','9-10am','10-11am','11-Noon','Noon-1pm', '1-2pm','2-3pm','3-4pm','4-5pm','5-6pm','6-7pm','7-8pm'];
 var shops = [];
 var addStoreForm = document.getElementById('add_store_form');
 
@@ -14,9 +14,9 @@ function Shop(shopLoc, custPerHrMin, custPerHrMax, cookPerCustAvg) {
   this.custPerHrArray = []; // array containing a random number of customers per hour.
   this.cooksPerHrArray = []; // array containing number of cookies sold in an hour period.
   this.totalDailyCookies = 0;
+  this.cooksPerHr();
   shops.push(this);
-  // this.randNum = 0;
-}
+};
 
 addStoreForm.addEventListener('submit', function(event){
   event.preventDefault();
@@ -25,6 +25,15 @@ addStoreForm.addEventListener('submit', function(event){
     avgCookiesPerCust = parseFloat(document.getElementById('avg_cookies_per_hour').value),
     storeName = document.getElementById('shop_location').value;
     //here is where data validation will go if we have time
+  if (!minCustPerHour || !maxCustPerHour || !avgCookiesPerCust) {
+    return alert('Please enter a number in the field.');
+  };
+  if (!storeName) {
+    return alert('Please enter the store name.');
+  };
+  if (maxCustPerHour < minCustPerHour) {
+    return alert('You entered a maximum number of customers per hour that is smaller than your minimum. Please enter a larger or equal number.');
+  };
   new Shop(storeName, minCustPerHour, maxCustPerHour, avgCookiesPerCust);
   var dataTable = document.getElementById('salesData');
   dataTable.textContent = '';
@@ -32,6 +41,18 @@ addStoreForm.addEventListener('submit', function(event){
   renderShopsArray();
 });
 
+Shop.prototype.cooksPerHr = function() {
+  var randNum = 0;
+  for (var i = 0; i < hours.length; i++) {
+    randNum = Math.floor(Math.random() * (this.custPerHrMax - this.custPerHrMin + 1)) + this.custPerHrMin;
+    this.custPerHrArray[i] = randNum;
+    this.cooksPerHrArray[i] = (Math.floor(this.custPerHrArray[i] * this.cookPerCustAvg));
+    this.totalDailyCookies += this.cooksPerHrArray[i];
+  }
+  // console.log(this.cooksPerHrArray);
+};
+
+// these are instances of my Shop oject
 var firstAndPike = new Shop('1st and Pike', 23, 65, 6.3);
 var seatacAirport = new Shop('SeaTac Airport', 3, 24, 1.2);
 var seattleCenter = new Shop('Seattle Center', 11, 38, 3.7);
@@ -45,16 +66,7 @@ var alki = new Shop ('Alki', 2, 16, 4.6);
 // //return Math.floor(Math.random() * (max - min + 1)) + min;
 // };
 
-Shop.prototype.cooksPerHr = function() {
-  var randNum = 0;
-  for (var i = 0; i < hours.length; i++) {
-    randNum = Math.floor(Math.random() * (this.custPerHrMax - this.custPerHrMin + 1)) + this.custPerHrMin;
-    this.custPerHrArray[i] = randNum;
-    this.cooksPerHrArray.push(Math.floor(this.custPerHrArray[i] * this.cookPerCustAvg));
-    this.totalDailyCookies += this.cooksPerHrArray[i];
-  }
-  // console.log(this.cooksPerHrArray);
-};
+
 
 // firstAndPike.cooksPerHr();
 // seatacAirport.cooksPerHr();
@@ -71,7 +83,7 @@ Shop.prototype.cooksPerHr = function() {
 
 // render the table
 Shop.prototype.renderData = function() {
-  this.cooksPerHr();
+  // this.cooksPerHr();
   var dataTable = document.getElementById('salesData');
   var trEl = document.createElement('tr');  //create the html element
   var tdEl = document.createElement('td'); //create the html element
