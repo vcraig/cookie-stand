@@ -1,11 +1,12 @@
-table, td {
-  border: 1px solid green
+body {
+  font-family: helvetica;
+  font-size: 20px;
 }
 
-td {
-  padding: 10px;
-}
-th {
-  background-color: grey;
-  color: white;
+/* make banner row list elements lay out horizontally */
+.inner ul li {
+display: inline-block;
+margin-left: 30px;
+margin-top: 30px;
+color: #fff;
 }
