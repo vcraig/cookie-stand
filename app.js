@@ -1,6 +1,6 @@
 // cookie-stand
 
-var hours = ['6-7am', '7-8am','8-9am','9-10am','10-11am','11-Noon','Noon-1pm', '1-2pm','2-3pm','3-4pm','4-5pm','5-6pm','6-7pm','7-8pm','8-9pm'];
+var hours = ['6-7am', '7-8am','8-9am','9-10am','10-11am','11-Noon','Noon-1pm', '1-2pm','2-3pm','3-4pm','4-5pm','5-6pm','6-7pm','7-8pm'];
 var shops = [];
 var addStoreForm = document.getElementById('add_store_form');
 
@@ -52,7 +52,7 @@ Shop.prototype.cooksPerHr = function() {
   // console.log(this.cooksPerHrArray);
 };
 
-
+// these are instances of my Shop oject
 var firstAndPike = new Shop('1st and Pike', 23, 65, 6.3);
 var seatacAirport = new Shop('SeaTac Airport', 3, 24, 1.2);
 var seattleCenter = new Shop('Seattle Center', 11, 38, 3.7);
