@@ -15,6 +15,13 @@ h1 {
   font-size: 35px;
 }
 
+h2 {
+  font-family: 'Merriweather', serif;
+  color: #6B2006;
+  font-weight: 900;
+  font-size: 20px;
+}
+
 #data {
   font-family: 'arial', sans-serif;
   background-color: #fff;
@@ -22,12 +29,32 @@ h1 {
   font-size: 15px;
 }
 
-/* make banner row list elements lay out horizontally */
+form {
+  background-color: #FFDBCF;
+  text-align: left;
+  padding: 30px 30px;
+}
+
+legend {
+  font-family: 'Merriweather', serif;
+  color: #6B2006;
+  font-weight: 900;
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+
+#border {
+  background-color: #ACFFEC;
+  width: auto;
+  height: 20px;
+}
+
 .inner ul {
   background-color: #06634E;
   color: #fff;
 }
 
+/* make banner row list elements lay out horizontally */
 .inner ul li {
   display: inline-block;
   margin-left: 30px;

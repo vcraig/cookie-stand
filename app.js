@@ -20,11 +20,11 @@ function Shop(shopLoc, custPerHrMin, custPerHrMax, cookPerCustAvg) {
 
 addStoreForm.addEventListener('submit', function(event){
   event.preventDefault();
-  var minCustPerHour = parseInt(document.getElementById('min_cust_per_hour').value),
+  var minCustPerHour =        parseInt(document.getElementById('min_cust_per_hour').value),
     maxCustPerHour = parseInt(document.getElementById('max_cust_per_hour').value),
     avgCookiesPerCust = parseFloat(document.getElementById('avg_cookies_per_hour').value),
     storeName = document.getElementById('shop_location').value;
-    //here is where data validation will go if we have time
+    //data validation
   if (!minCustPerHour || !maxCustPerHour || !avgCookiesPerCust) {
     return alert('Please enter a number in the field.');
   };
