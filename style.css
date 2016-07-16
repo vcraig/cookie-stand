@@ -1,6 +1,21 @@
+
+
 body {
-  font-family: helvetica;
+  font-family: 'georgia', serif;
   font-size: 20px;
+  color: #000;
+  background-color: #ACFFEC;
+}
+
+h1 {
+  font-family: 'Merriweather', serif;
+  color: #6B2006;
+  font-weight: 900;
+  font-size: 35px;
+}
+
+#data {
+  font-family: 'arial', sans-serif;
 }
 
 /* make banner row list elements lay out horizontally */
