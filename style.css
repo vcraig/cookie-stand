@@ -1,4 +1,8 @@
-
+* {
+  border-color: magenta;
+  border-width: thin;
+  border-style: dashed;
+}
 
 body {
   font-family: 'georgia', serif;
@@ -13,6 +17,7 @@ h1 {
   color: #6B2006;
   font-weight: 900;
   font-size: 35px;
+  text-align: center;
 }
 
 h2 {
@@ -20,6 +25,14 @@ h2 {
   color: #6B2006;
   font-weight: 900;
   font-size: 20px;
+}
+
+a:link {
+    color: #fff;
+}
+
+a:visited {
+    color: #FF8C65;
 }
 
 #data {
@@ -32,7 +45,7 @@ h2 {
 form {
   background-color: #FFDBCF;
   text-align: left;
-  padding: 30px 30px;
+  padding: 10px 30px;
 }
 
 legend {
@@ -57,9 +70,17 @@ legend {
 /* make banner row list elements lay out horizontally */
 .inner ul li {
   display: inline-block;
-  margin-left: 30px;
-  margin-top: 30px;
   font-family: 'arial', sans-serif;
+  margin: 0;
+  padding: 10px 60px;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: middle;
+}
+
+.merch {
+  width: 310px;
 }
 
 footer{
@@ -68,4 +89,9 @@ footer{
   width: 960px;
   text-align: center;
   font-size: 15px;
+}
+
+#chinook {
+  padding: 10px 0px;
+  border-radius: 10px;
 }
