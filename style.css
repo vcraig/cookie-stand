@@ -1,5 +1,3 @@
-
-
 body {
   font-family: 'georgia', serif;
   font-size: 20px;
@@ -13,6 +11,22 @@ h1 {
   color: #6B2006;
   font-weight: 900;
   font-size: 35px;
+  text-align: center;
+}
+
+h2 {
+  font-family: 'Merriweather', serif;
+  color: #6B2006;
+  font-weight: 900;
+  font-size: 20px;
+}
+
+a:link {
+    color: #fff;
+}
+
+a:visited {
+    color: #FF8C65;
 }
 
 #data {
@@ -22,7 +36,26 @@ h1 {
   font-size: 15px;
 }
 
-/* make banner row list elements lay out horizontally */
+form {
+  background-color: #FFDBCF;
+  text-align: left;
+  padding: 10px 30px;
+}
+
+legend {
+  font-family: 'Merriweather', serif;
+  color: #6B2006;
+  font-weight: 900;
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+
+#border {
+  background-color: #ACFFEC;
+  width: auto;
+  height: 20px;
+}
+
 .inner ul {
   background-color: #06634E;
   color: #fff;
@@ -30,9 +63,22 @@ h1 {
 
 .inner ul li {
   display: inline-block;
-  margin-left: 30px;
-  margin-top: 30px;
   font-family: 'arial', sans-serif;
+  margin: 0;
+  padding: 10px 60px;
+  border: 0;
+  vertical-align: middle;
+}
+
+.cookie ul li {
+  display: inline-block;
+  margin: 0;
+  padding: 10px 20px;
+  border: 0;
+}
+
+.merch {
+  width: 310px;
 }
 
 footer{
@@ -41,4 +87,9 @@ footer{
   width: 960px;
   text-align: center;
   font-size: 15px;
+}
+
+#chinook {
+  padding: 10px 0px;
+  border-radius: 10px;
 }

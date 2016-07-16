@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sales Data - Pat's Salmon Cookies</title>
+  <title>Sales Projections - Pat's Salmon Cookies</title>
   <link href="https://fonts.googleapis.com/css?family=Merriweather:400,900" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link href="style.css" rel="stylesheet">
 </head>
   <body>
-    <h1>Sales Data - Pat&#8217;s Salmon Cookies</h1>
+    <h1>Sales Projections - Pat&#8217;s Salmon Cookies</h1>
+    <h2>Recommended cookie inventory, per hour</h2>
     <section id="data">
       <table id="salesData">
       </table>
+      <div id="border"></div>
       <form id="add_store_form">
         <legend>Add a shop</legend>
         <fieldset>
@@ -29,9 +31,12 @@
           <label for="avg_cookies_per_hour">Average Cookies Per Hour:</label>
           <input id="avg_cookies_per_hour" name="avg_cookies_per_hour" type="text"/>
         </fieldset>
-        <input type="submit"/>
+        <input id="button" type="submit"/>
       </form>
     </section>
   <script src="app.js"></script>
+  <footer>
+    <p>Pat's Salmon Cookies &#9400;2016
+  </footer>
   </body>
 </html>

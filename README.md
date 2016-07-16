@@ -3,7 +3,7 @@
 Attribution: Random number array generator code copied from MDN.
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
-## Thursday Tasks
+## Notes Archive
 FIXED 1) Error handling for form input.
 
 FIXED 2) Stop the over-filling of data arrays. SOLUTION: a. In the cooksPerHr method, I replaced the push method with assignment. b. Examined flow of script. Rearranged pieces so that vars, functions, methods load in the order that they are needed.
