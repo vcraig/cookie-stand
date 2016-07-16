@@ -1,5 +1,4 @@
 // cookie-stand
-
 var hours = ['6-7am', '7-8am','8-9am','9-10am','10-11am','11-Noon','Noon-1pm', '1-2pm','2-3pm','3-4pm','4-5pm','5-6pm','6-7pm','7-8pm'];
 var shops = [];
 var addStoreForm = document.getElementById('add_store_form');
@@ -10,7 +9,6 @@ function Shop(shopLoc, custPerHrMin, custPerHrMax, cookPerCustAvg) {
   this.custPerHrMin = custPerHrMin; // minimum number of customers per hour.
   this.custPerHrMax = custPerHrMax; // max number of customers per hour.
   this.cookPerCustAvg = cookPerCustAvg; // average number of cookies purchased per customer.
-  // console.log('The ' + shopLoc + ' store sells an avg of ' + cookPerCustAvg + ' cookies per customer.');
   this.custPerHrArray = []; // array containing a random number of customers per hour.
   this.cooksPerHrArray = []; // array containing number of cookies sold in an hour period.
   this.totalDailyCookies = 0;
@@ -49,39 +47,17 @@ Shop.prototype.cooksPerHr = function() {
     this.cooksPerHrArray[i] = (Math.floor(this.custPerHrArray[i] * this.cookPerCustAvg));
     this.totalDailyCookies += this.cooksPerHrArray[i];
   }
-  // console.log(this.cooksPerHrArray);
 };
 
-// these are instances of my Shop oject
+// instances of Shop oject
 var firstAndPike = new Shop('1st and Pike', 23, 65, 6.3);
 var seatacAirport = new Shop('SeaTac Airport', 3, 24, 1.2);
 var seattleCenter = new Shop('Seattle Center', 11, 38, 3.7);
 var capitolHill = new Shop('Capitol Hill', 20, 38, 2.3);
 var alki = new Shop ('Alki', 2, 16, 4.6);
 
-// Shop.prototype.randNumGen = function() {
-//   // return Math.floor(Math.random() * (this.custPerHrMax - this.custPerHrMin + 1)) + this.custPerHrMin;
-//   var randNum = 0;
-//   randNum = Math.floor(Math.random() * (this.custPerHrMax - this.custPerHrMin + 1)) + this.custPerHrMin;
-// //return Math.floor(Math.random() * (max - min + 1)) + min;
-// };
-
-// firstAndPike.cooksPerHr();
-// seatacAirport.cooksPerHr();
-// seattleCenter.cooksPerHr();
-// capitolHill.cooksPerHr();
-// alki.cooksPerHr();
-
-//sams example of clearing comments, we will use to clear table
-// clearChatList.addEventListener('click', function() {
-//   chatList.innerHTML = '';
-//   console.log('You just cleared the chat list!');
-//   allComments = [];
-// });
-
 // render the table
 Shop.prototype.renderData = function() {
-  // this.cooksPerHr();
   var dataTable = document.getElementById('salesData');
   var trEl = document.createElement('tr');  //create the html element
   var tdEl = document.createElement('td'); //create the html element
@@ -118,7 +94,7 @@ var headerRow = function() {
 
 var renderShopsArray = function() {
   for(var i = 0; i < shops.length; i++) {
-    shops[i].renderData(); //you can add i later to shade even rows
+    shops[i].renderData();
   }
 };
 //call functions here
