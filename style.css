@@ -5,6 +5,7 @@ body {
   font-size: 20px;
   color: #000;
   background-color: #ACFFEC;
+  width: 960px;
 }
 
 h1 {
@@ -16,12 +17,26 @@ h1 {
 
 #data {
   font-family: 'arial', sans-serif;
+  background-color: #fff;
 }
 
 /* make banner row list elements lay out horizontally */
+.inner ul {
+  background-color: #06634E;
+  color: #fff;
+}
+
 .inner ul li {
-display: inline-block;
-margin-left: 30px;
-margin-top: 30px;
-color: #fff;
+  display: inline-block;
+  margin-left: 30px;
+  margin-top: 30px;
+  font-family: 'arial', sans-serif;
+}
+
+footer{
+  background-color: #06634E;
+  color: #fff;
+  width: 960px;
+  text-align: center;
+  font-size: 15px;
 }
