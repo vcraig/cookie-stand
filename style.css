@@ -1,12 +1,42 @@
+
+
 body {
-  font-family: helvetica;
+  font-family: 'georgia', serif;
   font-size: 20px;
+  color: #000;
+  background-color: #ACFFEC;
+  width: 960px;
+}
+
+h1 {
+  font-family: 'Merriweather', serif;
+  color: #6B2006;
+  font-weight: 900;
+  font-size: 35px;
+}
+
+#data {
+  font-family: 'arial', sans-serif;
+  background-color: #fff;
 }
 
 /* make banner row list elements lay out horizontally */
+.inner ul {
+  background-color: #06634E;
+  color: #fff;
+}
+
 .inner ul li {
-display: inline-block;
-margin-left: 30px;
-margin-top: 30px;
-color: #fff;
+  display: inline-block;
+  margin-left: 30px;
+  margin-top: 30px;
+  font-family: 'arial', sans-serif;
+}
+
+footer{
+  background-color: #06634E;
+  color: #fff;
+  width: 960px;
+  text-align: center;
+  font-size: 15px;
 }
